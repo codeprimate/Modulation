@@ -5,5 +5,3 @@ gen
 *.dex
 *.class
 *R.java
-.project
-.classpath
