@@ -5,6 +5,8 @@ package info.codeprimate.Modulation;
 
 import java.util.Date;
 
+import android.R.bool;
+
 /**
  * @author codeprimate
  *
@@ -190,5 +192,9 @@ public class Xtn {
 		this.balance = balance;
 	}
 	
-	
+	// Determine effective equality
+	// TODO: implement equals()
+	public Boolean equals(Xtn xtn) {
+		return false;
+	}
 }
