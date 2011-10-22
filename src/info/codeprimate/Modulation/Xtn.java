@@ -9,10 +9,10 @@ import android.R.bool;
 
 /**
  * @author codeprimate
- *
+ * 
  */
 public class Xtn {
-	
+
 	public Xtn(Date post_date, int check, String description, double debit,
 			double credit, double status, double balance, States state,
 			String category, String notes) {
@@ -40,13 +40,16 @@ public class Xtn {
 	private States state;
 	private String category;
 	private String notes;
-	
+	private XtnEntity payee;
+	private String _id;
+
 	@SuppressWarnings("unused")
 	private Date modified;
-	
-	public enum States { Final, Normal, Tentative }
-	
-	
+
+	public enum States {
+		Final, Normal, Tentative, Duplicate, Invalid, Deleted
+	}
+
 	/**
 	 * @return the notes
 	 */
@@ -55,7 +58,8 @@ public class Xtn {
 	}
 
 	/**
-	 * @param notes the notes to set
+	 * @param notes
+	 *            the notes to set
 	 */
 	public void setNotes(String notes) {
 		this.notes = notes;
@@ -69,7 +73,8 @@ public class Xtn {
 	}
 
 	/**
-	 * @param category the category to set
+	 * @param category
+	 *            the category to set
 	 */
 	public void setCategory(String category) {
 		this.category = category;
@@ -83,30 +88,28 @@ public class Xtn {
 	}
 
 	/**
-	 * @param post_date the post_date to set
+	 * @param post_date
+	 *            the post_date to set
 	 */
 
 	public void setPostDate(Date post_date) {
 		this.post_date = post_date;
 	}
-	
+
 	/**
 	 * @return the state
 	 */
 	public States getState() {
 		return state;
 	}
-	
 
 	/**
-	 * @param state the state to set
+	 * @param state
+	 *            the state to set
 	 */
 	public void setState(States state) {
 		this.state = state;
 	}
-
-
-	
 
 	/**
 	 * @return the check
@@ -116,7 +119,8 @@ public class Xtn {
 	}
 
 	/**
-	 * @param check the check to set
+	 * @param check
+	 *            the check to set
 	 */
 	public void setCheck(int check) {
 		this.check = check;
@@ -130,7 +134,8 @@ public class Xtn {
 	}
 
 	/**
-	 * @param description the description to set
+	 * @param description
+	 *            the description to set
 	 */
 	public void setDescription(String description) {
 		this.description = description;
@@ -144,7 +149,8 @@ public class Xtn {
 	}
 
 	/**
-	 * @param debit the debit to set
+	 * @param debit
+	 *            the debit to set
 	 */
 	public void setDebit(double debit) {
 		this.debit = debit;
@@ -158,7 +164,8 @@ public class Xtn {
 	}
 
 	/**
-	 * @param credit the credit to set
+	 * @param credit
+	 *            the credit to set
 	 */
 	public void setCredit(double credit) {
 		this.credit = credit;
@@ -172,7 +179,8 @@ public class Xtn {
 	}
 
 	/**
-	 * @param status the status to set
+	 * @param status
+	 *            the status to set
 	 */
 	public void setStatus(double status) {
 		this.status = status;
@@ -186,15 +194,17 @@ public class Xtn {
 	}
 
 	/**
-	 * @param balance the balance to set
+	 * @param balance
+	 *            the balance to set
 	 */
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-	
+
 	// Determine effective equality
 	// TODO: implement equals()
 	public Boolean equals(Xtn xtn) {
-		return false;
+		return (xtn.debit == debit && xtn.credit == credit
+				&& xtn.check == check && xtn.post_date == post_date);
 	}
 }

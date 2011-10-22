@@ -8,6 +8,10 @@ public class XtnCollection {
 	public XtnCollection() {
 		xtnCollection = new ArrayList<Xtn>();
 	}
+	
+	public XtnCollection(ArrayList<Xtn> xtn_list) {
+		xtnCollection = xtn_list;
+	}
 
 	// Add Xtn to collection
 	// TODO: implement smart add()
@@ -30,8 +34,10 @@ public class XtnCollection {
 	}
 
 	// Return an XtnCollection of Xtns which match the argument
-	public XtnCollection detect(Xtn model) {
+	public XtnCollection detect(Xtn model, Boolean fuzzy) {
 		XtnCollection out = new XtnCollection();
+
+		
 		return out;
 	}
 
